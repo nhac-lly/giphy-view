@@ -1,0 +1,18 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "tailwindCSS.experimental.classRegex": [
+    [
+      ":\\s*?[\"'`]([^\"'`]*).*?,"
+    ],
+    [
+      "clsx\\(([^)]*)\\)",
+      "(?:'|\"|`)([^']*)(?:'|\"|`)"
+    ]
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
+}

@@ -1,0 +1,15 @@
+<div>
+  <div class="flex">
+    Title:
+    <p class="pl-2">{{ gif.title }}</p>
+  </div>
+  <div class="flex">
+    Username:
+    <p class="pl-2">{{ gif.username }}</p>
+  </div>
+  <div class="flex">
+    Rating:
+    <p class="pl-2">{{ gif.rating }}</p>
+  </div>
+  <img src="{{ 'https://i.giphy.com/media/' + gif.id + '/giphy.gif' }}" />
+</div>

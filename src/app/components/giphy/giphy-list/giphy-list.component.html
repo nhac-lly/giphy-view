@@ -1,0 +1,44 @@
+<div class="container mx-auto">
+  <div *ngIf="!infData">
+    <h1>Waiting for input ...</h1>
+  </div>
+  <div *ngIf="infData">
+    <div *ngIf="!infData.length">
+      <h1>No Data ...</h1>
+    </div>
+    <div *ngIf="meta && meta.status !== 200">
+      <h1>Error: {{ meta.msg }}</h1>
+    </div>
+    <div *ngIf="!!infData.length" #giphylist>
+      <h1 class="font-extralight text-white shadow-xl italic">
+        Click Gif to see details
+      </h1>
+      <div class="flex justify-between">
+        <div class="grid grid-cols-3 gap-2 bg-black">
+          <div
+            *ngFor="let gif of infData"
+            class="m-auto"
+            (click)="selectGif(gif)">
+            <img
+              src="{{
+                'https://i.giphy.com/media/' + gif.id + '/giphy.gif'
+              }}" />
+          </div>
+          <span class="py-5 bg-black text-black" #giphyNext> haha </span>
+        </div>
+        <div *ngIf="!!curGif.id" class="">
+          <div class="sticky top-0 bg-white whitespace-nowrap p-2">
+            <button
+              class="bg-red-500 rounded-full text-white p-1 leading-[0.7] font-bold"
+              (click)="selectGif({})">
+              X
+            </button>
+            <app-giphy-details [gif]="curGif"></app-giphy-details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- null el incase of slow update -->
+<div id="null"></div>
